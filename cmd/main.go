@@ -96,13 +96,14 @@ func parseArgs() {
 	extended = flag.BoolP("extended", "e", false, "list all hash algorithms including salted passwords")
 
 	flag.Usage = func() {
-		fmt.Fprintf(os.Stderr, `Identify the different types of hashes used to encrypt data and especially passwords.
-hashid is a tool written in Go which supports the identification of over 220 unique hash types using regular expressions.
-hashid is written as a Go library so that it can easily be inlcuded in other tools. 
-It is able to identify a single hash. hashid is also capable of including the corresponding hashcat mode and/or JohnTheRipper format in its output.
+		fmt.Fprintf(os.Stderr, `Given a string determine the possible hashing algorithms used to produce that string. 
+hashid can also give the corresponding hashcat mode and/or JohnTheRipper format in its output.
+		
 Note: When identifying a hash on *nix operating systems use single quotes to prevent interpolation.
-
-Usage:
+		
+Usage: hashid [options]... [hash]
+		
+Options::
 `)
 		flag.PrintDefaults()
 		os.Exit(0)
