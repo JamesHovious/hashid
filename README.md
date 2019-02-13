@@ -1,10 +1,30 @@
-# hashid
+# hashid [![GoDoc](https://godoc.org/github.com/JamesHovious/go-badge?status.svg)](https://godoc.org/github.com/JamesHovious/hashid)
 
-Software to identify the different types of hashes
-Go implimentation of https://github.com/psypanda/hashID
+Given a string determine the possible hashing algorithms used to produce that string. 
 
-Identify the different types of hashes used to encrypt data and especially passwords.
-hashid is a tool written in Go which supports the identification of over 220 unique hash types using regular expressions.
-hashid is written as a Go library so that it can easily be inlcuded in other tools. 
-It is able to identify a single hash. hashid is also capable of including the corresponding hashcat mode and/or JohnTheRipper format in its output.
+hashid is impliemnted as a Go library so that it can be easily incorporated into other projects. 
+
+A CLI wrapper for this library is also available in the releases tab. 
+
+## Command line usage:
+
+```
+Given a string determine the possible hashing algorithms used to produce that string. 
+hashid can also give the corresponding hashcat mode and/or JohnTheRipper format in its output.
+
 Note: When identifying a hash on *nix operating systems use single quotes to prevent interpolation.
+
+Usage:
+  -e, --extended         list all hash algorithms including salted passwords
+  -j, --john             show corresponding JohnTheRipper format in output
+  -m, --mode             show corresponding hashcat mode in output
+  -o, --outfile string   write output to file (default: STDOUT)
+  -v, --version          show program's version number and exit
+```
+
+
+
+
+### Credits:
+
+This is a Go implimentation of https://github.com/psypanda/hashID

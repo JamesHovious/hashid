@@ -6,8 +6,8 @@ import (
 	"github.com/dlclark/regexp2"
 )
 
-// ProtoType describes the hash and format codes for HashCat and JohnTheRipper
-type ProtoType []struct {
+// ProtoTypes describes the hash and format codes for HashCat and JohnTheRipper
+type ProtoTypes []struct {
 	Regex string `json:"regex"`
 	Modes []struct {
 		John     string `json:"john"`
@@ -18,8 +18,8 @@ type ProtoType []struct {
 }
 
 //GetHashType returns the possible hash types, as well as their HashCat and JohnTheRipper formats.
-func GetHashType(hash string) (hashTypes ProtoType, err error) {
-	p := &ProtoType{}
+func GetHashType(hash string) (hashTypes ProtoTypes, err error) {
+	p := &ProtoTypes{}
 	err = json.Unmarshal([]byte(prototype), p)
 	if err != nil {
 		return nil, err
