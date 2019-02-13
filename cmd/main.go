@@ -1,7 +1,7 @@
 package main
 
 // Software to identify the different types of hashes
-// A Go implimentation of https://github.com/psypanda/hashID
+// A Go implementation of https://github.com/psypanda/hashID
 
 import (
 	"bufio"

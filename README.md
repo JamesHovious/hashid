@@ -2,7 +2,7 @@
 
 Given a string determine the possible hashing algorithms used to produce that string. 
 
-hashid is impliemnted as a Go library so that it can be easily incorporated into other projects. 
+hashid is implemented as a Go library so that it can be easily incorporated into other projects. 
 
 A CLI wrapper for this library is also available in the releases tab. 
 
@@ -27,4 +27,4 @@ Usage:
 
 ### Credits:
 
-This is a Go implimentation of https://github.com/psypanda/hashID
+This is a Go implementation of https://github.com/psypanda/hashID
