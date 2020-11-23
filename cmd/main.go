@@ -44,7 +44,7 @@ func checkVersion() {
 
 func getHash(hash string) {
 
-	hasheTypes, err := hashid.GetHashType(hash)
+	hasheTypes, err := hashid.GetHashTypes(hash)
 	newline := "\n"
 	space := " "
 	if err != nil {

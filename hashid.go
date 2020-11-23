@@ -6,8 +6,8 @@ import (
 	"github.com/dlclark/regexp2"
 )
 
-// ProtoTypes describes the hash and format codes for HashCat and JohnTheRipper
-type ProtoTypes []struct {
+// Hash describes the hash and format codes for HashCat and JohnTheRipper
+type Hash struct {
 	Regex string `json:"regex"`
 	Modes []struct {
 		John     string `json:"john"`
@@ -17,14 +17,15 @@ type ProtoTypes []struct {
 	} `json:"modes"`
 }
 
-//GetHashType returns the possible hash types, as well as their HashCat and JohnTheRipper formats.
-func GetHashType(hash string) (hashTypes ProtoTypes, err error) {
-	p := &ProtoTypes{}
-	err = json.Unmarshal([]byte(prototype), p)
+
+//GetHashTypes returns the possible hash types, as well as their HashCat and JohnTheRipper formats.
+func GetHashTypes(hash string) (hashes []Hash, err error) {
+	p := []Hash{}
+	err = json.Unmarshal([]byte(hashTypes), &p)
 	if err != nil {
 		return nil, err
 	}
-	for _, i := range *p {
+	for _, i := range p {
 		var validID, err = regexp2.Compile(i.Regex, 0)
 		if err != nil {
 			return nil, err
@@ -34,7 +35,7 @@ func GetHashType(hash string) (hashTypes ProtoTypes, err error) {
 			return nil, err
 		}
 		if res {
-			hashTypes = append(hashTypes, i)
+			hashes = append(hashes, i)
 		}
 
 	}
@@ -42,7 +43,7 @@ func GetHashType(hash string) (hashTypes ProtoTypes, err error) {
 }
 
 // Originally taken from https://github.com/psypanda/hashID/blob/master/prototypes.json thanks psypanda!
-var prototype = `
+var hashTypes = `
 [
     {
         "regex": "^[a-f0-9]{4}$",
